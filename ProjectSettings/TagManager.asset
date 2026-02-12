@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Goal
   - Dead
+  - Switch
+  - ScoreItem
   layers:
   - Default
   - TransparentFX
