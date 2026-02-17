@@ -4305,7 +4305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86da016ef0d8fd4b8deac3b4a9102d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Result
+  nextSceneName: Stage2
   meGameClear: {fileID: 8300000, guid: 32a3684314927490ab86fd2793d70ba3, type: 3}
   meGameOver: {fileID: 8300000, guid: d344f3c0bb8f94974a5a76b4a40ebdae, type: 3}
   isGameClear: 0
