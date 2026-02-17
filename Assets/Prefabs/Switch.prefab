@@ -36,7 +36,6 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1331898913603750999
 SpriteRenderer:
-  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -55,8 +54,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -78,20 +75,19 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: -2621107458859240990, guid: fab00ea4af14c8049994df64c37df394, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e0a1b9c6d19a5640b1f228264552f8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.16, y: 1}
+  m_Size: {x: 1.2, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &5604527723429215951
 BoxCollider2D:
@@ -131,8 +127,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.16, y: 1}
-    newSize: {x: 1.16, y: 1}
+    oldSize: {x: 1.2, y: 1}
+    newSize: {x: 1.2, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -152,6 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetMoveBlock: {fileID: 0}
-  imageOff: {fileID: -2621107458859240990, guid: fab00ea4af14c8049994df64c37df394, type: 3}
-  imageOn: {fileID: 4000373562756134585, guid: 54909661385a6b84fadb8a5912f3785a, type: 3}
+  imageOff: {fileID: 21300000, guid: 3e0a1b9c6d19a5640b1f228264552f8a, type: 3}
+  imageOn: {fileID: 21300000, guid: eb7ff862c56a94e48b3620998f633f5b, type: 3}
   on: 0
