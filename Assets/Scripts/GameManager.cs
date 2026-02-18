@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,12 +32,37 @@ public class GameManager : MonoBehaviour
     public bool isGameClear = false; //ゲームクリア判定
     public bool isGameOver = false; //ゲームオーバー判定
 
+    //ワールドマップで最後に入ったエントランスのドア番号
+    public static int currentDoorNumber = 0;
+
+    //所持アイテム　鍵番号
+    public static int keys = 1;
+
+    //どのステージの鍵が入手済みかを管理
+    public static Dictionary<string, bool> keyGot; //シーン名、True/False
+
+    //所持アイテム　矢の管理
+    public static int arrows = 10;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gameState = GameState.InGame;　//ステータスをゲーム中にする 独自の型を使う時は右のようにしなくてはならない。
         soundPlayer = GetComponent<AudioSource>(); //使用するコンポーネントの取得
+
+        //KeyGotが何もない状態だった時のみ初期化
+        if (keyGot == null)
+        {
+            keyGot = new Dictionary<string, bool>();
+        }
+
+        //もしも現シーン名がDictionary(keyGot)に登録されていなければ
+        if (!(keyGot.ContainsKey(SceneManager.GetActiveScene().name)))
+        {
+            //Dictionary(keyGot)に登録しておく(現シーン名、鍵の取得情報false)
+            keyGot.Add(SceneManager.GetActiveScene().name, false);
+        }
 
     }
 
