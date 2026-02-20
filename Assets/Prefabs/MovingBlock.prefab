@@ -152,4 +152,4 @@ MonoBehaviour:
   times: 3
   wait: 0
   isMoveWhenOn: 0
-  isCanMove: 1
+  isCanMove: 0

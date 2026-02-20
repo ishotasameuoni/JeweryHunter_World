@@ -26,6 +26,14 @@ public class UIController : MonoBehaviour
     public GameObject scoreText;        // スコアテキスト
     public int stageScore = 0;          // ステージスコア
 
+    public TextMeshProUGUI keyText;
+    int currentKeys;
+    public TextMeshProUGUI arrowText;
+    int currentArrows;
+
+    public Slider lifeSlider;
+    int currentLife;
+
     //ヒエラルキーに存在するものは基本GameObject型(何かしらの機能を持つ物）
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -118,7 +126,7 @@ public class UIController : MonoBehaviour
                 int time = (int)timeController.GetDisplayTime();
                 timeText.GetComponent<TextMeshProUGUI>().text = time.ToString();
 
-                Debug.Log(time);
+                //Debug.Log(time);
 
                 if (useTime && timeController.isCountDown && time <= 0) //カウントダウンモードで時間が0なら
                 {
@@ -128,8 +136,23 @@ public class UIController : MonoBehaviour
                 {
                     playerController.GameOver(); // ゲームオーバーにする
                 }
-
             }
+        }
+
+        if (currentKeys != GameManager.keys)
+        {
+            currentKeys = GameManager.keys;
+            keyText.text = currentKeys.ToString();
+        }
+        if (currentArrows != GameManager.arrows)
+        {
+            currentArrows = GameManager.arrows;
+            arrowText.text = currentArrows.ToString();
+        }
+        if (currentLife != PlayerController.playerLife)
+        {
+            currentLife = PlayerController.playerLife;
+            lifeSlider.value = currentLife;
         }
     }
 

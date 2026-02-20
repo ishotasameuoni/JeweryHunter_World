@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         {
             soundPlayer.Stop();
             soundPlayer.PlayOneShot(meGameOver);
-            isGameClear = true;
+            isGameOver = true;
             gameState = GameState.GameEnd;
         }
     }

@@ -19,6 +19,19 @@ public class World_PlayerController : MonoBehaviour
     Rigidbody2D rbody;
     Animator animator;
 
+    bool isActionButtonPressed; //ActionButtonが押されたらtrue
+    public bool IsActionButtonPressed //同名の変数を大文字で書くことでプロパティ(パブリック化)として利用している
+    {
+        get { return isActionButtonPressed; }
+        set { isActionButtonPressed = value; }
+    }
+
+    void OnActionButton(InputValue value)
+    {
+        IsActionButtonPressed = value.isPressed; // ボタンが押され続けている間はtrue
+    }
+
+
     float GetAngle()
     {
         float angle = angleZ;

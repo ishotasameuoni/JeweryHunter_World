@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6031797942775750092}
   m_Layer: 0
   m_Name: Item_Red
-  m_TagString: Scoreitem
+  m_TagString: ScoreItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

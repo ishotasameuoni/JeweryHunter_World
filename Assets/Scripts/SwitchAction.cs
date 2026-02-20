@@ -36,7 +36,7 @@ public class SwitchAction : MonoBehaviour
             if (on)
             {
                 //OFFにする
-                on = false; 
+                on = false;
                 GetComponent<SpriteRenderer>().sprite = imageOff;
                 MovingBlock movBlock = targetMoveBlock.GetComponent<MovingBlock>();
                 movBlock.Stop();　//ブロックの動きも止める

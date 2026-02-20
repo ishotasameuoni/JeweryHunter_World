@@ -2257,6 +2257,10 @@ PrefabInstance:
       propertyPath: times
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 254996327495874015, guid: 24278432883514fba9c2bc94d3bcf72b, type: 3}
+      propertyPath: isCanMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2779058052646735989, guid: 24278432883514fba9c2bc94d3bcf72b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.04
@@ -2306,6 +2310,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24278432883514fba9c2bc94d3bcf72b, type: 3}
+--- !u!1 &813413565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5056419086611321061, guid: 24278432883514fba9c2bc94d3bcf72b, type: 3}
+  m_PrefabInstance: {fileID: 670629288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &887953146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2952,7 +2961,7 @@ PrefabInstance:
     - target: {fileID: 8375790441164473827, guid: b45c07a342e274905bcd5c03e6ad14bf, type: 3}
       propertyPath: targetMoveBlock
       value: 
-      objectReference: {fileID: 5056419086611321061, guid: 24278432883514fba9c2bc94d3bcf72b, type: 3}
+      objectReference: {fileID: 813413565}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3282,7 +3291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778798747903289633, guid: 0b25da18f142a4a92b2f2dd7ffbec7a4, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

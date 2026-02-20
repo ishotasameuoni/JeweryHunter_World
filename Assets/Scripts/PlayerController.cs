@@ -32,6 +32,14 @@ public class PlayerController : MonoBehaviour
 
     GameManager gm; //GameManagerスクリプト
 
+    public static int playerLife = 10;  //Playerの体力 (staticした変数はコンポーネントにアタッチしても表示はされない)
+
+    bool inDamage; //ダメージ管理フラグ
+    static public void PlayerRecovery(int life) //Playerの体力回復メソッド
+    {
+        playerLife += life; //引数life分だけ回復
+        if (playerLife > 10) playerLife = 10; //一行で収められるなら{}は必要なくても成立する
+    }
     void OnMove(InputValue value)
     {
         //取得した情報をVector2形式で抽出
@@ -71,9 +79,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.gameState != GameState.InGame)
+        if (GameManager.gameState != GameState.InGame || inDamage)
         {
-            return;　//Updateを中断
+            if (inDamage)
+            {
+                //Sin関数の角度に経過時間（一定リズム)を与えると、等間隔でプラスとマイナスの結果が得られる (通常だと遅いので50倍にすることで早くちらつかせる)
+                float val = Mathf.Sin(Time.time * 50);
+
+                //ダメージ点滅処理
+                if (val > 0)
+                {
+                    GetComponent<SpriteRenderer>().enabled = true;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().enabled = false;
+                }
+            }
+            return; //Updateを中断
         }
 
         //Groundの上にいるか
@@ -96,7 +119,7 @@ public class PlayerController : MonoBehaviour
         //    goJump = true;
         //}
 
-       
+
 
         //if(moveAction.WasPressedThisFrame())
         //{
@@ -105,7 +128,7 @@ public class PlayerController : MonoBehaviour
 
 
         //axisH = Input.GetAxisRaw("Horizontal");
-       
+
         //左右に関するキー入力をaxisHに代入
         //InputActionのPlayerマップの"Move"アクションに登録されたボタンをVector2形式で読み取り、そのうちのX成分を反映
         //axisH = moveAction.ReadValue<Vector2>(),x;
@@ -147,7 +170,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.gameState != GameState.InGame)
+        //INゲームではなく、ダメージフラグがTrueの時(GameState.Ingame || inDamage == trueの略,falseの際は!inDamageと書く)
+        if (GameManager.gameState != GameState.InGame || inDamage)
         {
             return;　//Updateを中断
         }
@@ -189,6 +213,14 @@ public class PlayerController : MonoBehaviour
             score = 0; //次に備えてスコアをリセット
             Destroy(collision.gameObject);              // アイテム削除する
         }
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            if (!inDamage) //ダメージ中でなければ
+            {
+                //ぶつかった相手のオブジェクト情報を引数
+                GetDamage(collision.gameObject);
+            }
+        }
     }
 
     //ゴール
@@ -223,7 +255,7 @@ public class PlayerController : MonoBehaviour
         input.SwitchCurrentActionMap("UI");
         input.currentActionMap.Enable();
     }
-   
+
     //UI表示時にSubmitボタンが押されたら
     void OnSubmit(InputValue value)
     {
@@ -239,6 +271,32 @@ public class PlayerController : MonoBehaviour
     public float GetAxisH()
     {
         return axisH;
+    }
+
+    void GetDamage(GameObject target)
+    {
+        if (GameManager.gameState == GameState.InGame)
+        {
+            playerLife -= 1;
+            if (playerLife > 0)
+            {
+                rbody.linearVelocity = new Vector2(0, 0);
+                Vector3 v = (transform.position - target.transform.position).normalized; //ノックバック用の具体的な数値(均一化することで力を一定にする)
+                rbody.AddForce(new Vector2(v.x * 4, v.y * 4), ForceMode2D.Impulse); //ノックバックの処理
+                inDamage = true;
+                Invoke("DamageEnd", 0.25f); //発動させる時間を表現する方法がないためInvokeを用いている
+            }
+            else
+            {
+                GameOver();
+            }
+        }
+    }
+
+    void DamageEnd() //ダメージ管理フラグをオフにするメソッド
+    {
+        inDamage = false;
+        GetComponent<SpriteRenderer>().enabled = true;
     }
 
 }

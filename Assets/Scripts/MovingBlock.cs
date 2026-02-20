@@ -90,7 +90,7 @@ public class MovingBlock : MonoBehaviour
 
             //乗った時に動くフラグが立っているなら
             if (isMoveWhenOn)
-            {                
+            {
                 isCanMove = true;   //プレイヤーと接触することで移動フラグが立つことになる
             }
         }
