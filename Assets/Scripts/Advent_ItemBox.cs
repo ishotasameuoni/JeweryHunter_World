@@ -21,7 +21,7 @@ public class Advent_ItemBox : MonoBehaviour
             {
                 isClosed = false;
                 //見た目をオープンに変更
-                GetComponent<SpriteRenderer>().sprite = openImage;   
+                GetComponent<SpriteRenderer>().sprite = openImage;
             }
         }
     }

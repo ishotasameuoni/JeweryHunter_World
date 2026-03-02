@@ -42,6 +42,8 @@ public class Advent_Item : MonoBehaviour
 
                 case AdventItemType.Arrrow:
                     GameManager.arrows += numberOfArrow;
+                    //一度矢を手に入れたのでまた補充できるようにする
+                    ArrowGenerator.isRecover = false;
                     break;
 
                 case AdventItemType.Life:

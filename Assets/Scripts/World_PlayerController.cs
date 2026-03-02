@@ -51,7 +51,7 @@ public class World_PlayerController : MonoBehaviour
         {
             dir = Direction.right;
         }
-        else if (angleZ >= 91 && angleZ <= 269)
+        else if (angleZ >= 91 && angleZ <= 180 || angleZ >=-180 && angleZ <= -91 )
         {
             dir = Direction.left;
         }
@@ -82,20 +82,20 @@ public class World_PlayerController : MonoBehaviour
 
         if (dir == Direction.right)
         {
-            transform.localScale = new Vector2(1, 1);
+            transform.localScale = new Vector2(1, 1); //絵はそのまま
         }
         else
         {
-            transform.localScale = new Vector2(-1, 1);
+            transform.localScale = new Vector2(-1, 1); //絵の反転
         }
 
         if (moveVec != Vector2.zero)
         {
-            animator.SetBool("Run", true);
+            animator.SetBool("Run", true); //Runパラメータをtrue
         }
         else
         {
-            animator.SetBool("Run", false);
+            animator.SetBool("Run", false); //Runパラメータをfalse
         }
 
     }

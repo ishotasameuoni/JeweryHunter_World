@@ -1111,9 +1111,9 @@ MonoBehaviour:
   timeText: {fileID: 5589272127662492450}
   scoreText: {fileID: 742665131219298825}
   stageScore: 0
-  keyText: {fileID: 0}
-  arrowText: {fileID: 0}
-  lifeSlider: {fileID: 0}
+  keyText: {fileID: 1309575585851450146}
+  arrowText: {fileID: 9173949797836112893}
+  lifeSlider: {fileID: 3644179618193325508}
 --- !u!114 &3367756524599360717
 MonoBehaviour:
   m_ObjectHideFlags: 0

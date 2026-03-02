@@ -51,6 +51,28 @@ public class GameManager : MonoBehaviour
         gameState = GameState.InGame;　//ステータスをゲーム中にする 独自の型を使う時は右のようにしなくてはならない。
         soundPlayer = GetComponent<AudioSource>(); //使用するコンポーネントの取得
 
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene != "WorldMap")
+        {
+            SoundManager.currentSoundManager.restartBGM = true;
+            if (currentScene == "Boss")
+            {
+                SoundManager.currentSoundManager.StopBGM();
+                SoundManager.currentSoundManager.PlayBGM(BGMType.InBoss);
+            }
+            else
+            {
+                SoundManager.currentSoundManager.StopBGM();
+                SoundManager.currentSoundManager.PlayBGM(BGMType.InGame);
+            }
+        }
+        else if (SoundManager.currentSoundManager.restartBGM)
+        {
+            SoundManager.currentSoundManager.StopBGM();
+            SoundManager.currentSoundManager.PlayBGM(BGMType.Title);
+        }
+
         //KeyGotが何もない状態だった時のみ初期化
         if (keyGot == null)
         {
@@ -63,26 +85,39 @@ public class GameManager : MonoBehaviour
             //Dictionary(keyGot)に登録しておく(現シーン名、鍵の取得情報false)
             keyGot.Add(SceneManager.GetActiveScene().name, false);
         }
-
     }
+
+
 
     // Update is called once per frame
     void LateUpdate()
     {
-        if (gameState == GameState.GameClear)
+        if (gameState == GameState.GameClear) //クリアなら
         {
-            soundPlayer.Stop();
-            soundPlayer.PlayOneShot(meGameClear);
+            //soundPlayer.Stop(); //ステージの曲を止める
+            //soundPlayer.PlayOneShot(meGameClear); //クリア音を鳴らす
+            SoundManager.currentSoundManager.StopBGM();
+            SoundManager.currentSoundManager.PlayBGM(BGMType.GameClear);
             isGameClear = true;
-            gameState = GameState.GameEnd;
+            Invoke("GameStatusChange", 0.02f); //あえて遅らせることでUIの出現を先起こさせる＋状態の更新
+            //gameState = GameState.GameEnd; //状態の更新
         }
-        else if (gameState == GameState.GameOver)
+        else if (gameState == GameState.GameOver) //ゲームオーバーなら
         {
-            soundPlayer.Stop();
-            soundPlayer.PlayOneShot(meGameOver);
+            //soundPlayer.Stop();
+            //soundPlayer.PlayOneShot(meGameOver);
+            SoundManager.currentSoundManager.StopBGM();
+            SoundManager.currentSoundManager.PlayBGM(BGMType.GameOver);
+
             isGameOver = true;
-            gameState = GameState.GameEnd;
+            Invoke("GameStatusChange", 0.02f);
+            //gameState = GameState.GameEnd;
         }
+    }
+
+    void GameStatusChange()
+    {
+        gameState = GameState.GameEnd; //ステータスの更新
     }
 
     //リスタート
@@ -94,6 +129,7 @@ public class GameManager : MonoBehaviour
     //次へ
     public void Next()
     {
+        SaveDataManager.SaveGamedata(); //ワールドマップに戻る際にセーブする
         SceneManager.LoadScene(nextSceneName);
     }
 

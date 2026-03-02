@@ -35,6 +35,13 @@ public class PlayerController : MonoBehaviour
     public static int playerLife = 10;  //Playerの体力 (staticした変数はコンポーネントにアタッチしても表示はされない)
 
     bool inDamage; //ダメージ管理フラグ
+
+    //弓矢の機構
+    public float shootSpeed = 12.0f; //矢の速度
+    public float shootDelay = 0.25f; //発射間隔
+    public GameObject arrowPrefab; //矢のプレハブ
+    public GameObject gate; //矢の発射位置
+
     static public void PlayerRecovery(int life) //Playerの体力回復メソッド
     {
         playerLife += life; //引数life分だけ回復
@@ -53,6 +60,37 @@ public class PlayerController : MonoBehaviour
         {
             goJump = true;
         }
+    }
+
+    void OnAttack(InputValue value)
+    {
+        if (GameManager.arrows > 0)
+        {
+            ShootArrow();
+        }
+    }
+
+    //矢を放つメソッド
+    void ShootArrow()
+    {
+        GameManager.arrows--;
+        Quaternion r;
+
+        if (transform.localScale.x > 0)
+        {
+            r = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            r = Quaternion.Euler(0, 0, 180);
+        }
+        //Gateオブジェクトの位置にrの回転で矢を生成
+        GameObject arrowObj = Instantiate(
+            arrowPrefab, gate.transform.position, r);
+        //生成した矢のRigidbody2Dを取得
+        Rigidbody2D arrowRbody = arrowObj.GetComponent<Rigidbody2D>();
+        //Playerの絵の向きに合わせた方向に矢を放つ
+        arrowRbody.AddForce(new Vector2(transform.localScale.x, 0) * shootSpeed, ForceMode2D.Impulse);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 120737814}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1910227968}
+        m_TargetAssemblyTypeName: TitleManager, Assembly-CSharp
+        m_MethodName: ContinueLoad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &120737814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,7 +746,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1910227966}
+      - m_Target: {fileID: 1910227968}
         m_TargetAssemblyTypeName: TitleManager, Assembly-CSharp
         m_MethodName: Load
         m_Mode: 1
@@ -1037,6 +1049,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1643892978
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 377305944793225323, guid: 10db6e92d59ee81428128f39a79c14e4, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997259980342412082, guid: 10db6e92d59ee81428128f39a79c14e4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.39929
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997259980342412082, guid: 10db6e92d59ee81428128f39a79c14e4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.41322
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997259980342412082, guid: 10db6e92d59ee81428128f39a79c14e4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997259980342412082, guid: 10db6e92d59ee81428128f39a79c14e4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997259980342412082, guid: 10db6e92d59ee81428128f39a79c14e4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997259980342412082, guid: 10db6e92d59ee81428128f39a79c14e4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997259980342412082, guid: 10db6e92d59ee81428128f39a79c14e4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997259980342412082, guid: 10db6e92d59ee81428128f39a79c14e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997259980342412082, guid: 10db6e92d59ee81428128f39a79c14e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997259980342412082, guid: 10db6e92d59ee81428128f39a79c14e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10db6e92d59ee81428128f39a79c14e4, type: 3}
 --- !u!1 &1910227961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,8 +1118,8 @@ GameObject:
   - component: {fileID: 1910227964}
   - component: {fileID: 1910227963}
   - component: {fileID: 1910227962}
-  - component: {fileID: 1910227966}
   - component: {fileID: 1910227967}
+  - component: {fileID: 1910227968}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1145,60 +1214,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1910227966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910227961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db2e9200e483b934795c4df233f74da2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: Base
-  submitAction:
-    m_Name: Submit
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 993cd3c1-fe6b-4374-a829-412ea92be20a
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 37c7dfbd-b9c2-45ad-8a54-0326fa613055
-      m_Path: <Keyboard>/enter
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Submit
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 78681621-e715-46aa-86ba-86b1f515fa40
-      m_Path: <Keyboard>/space
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Submit
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 9dafa462-2e28-41d5-90af-d3f3bdd1f58e
-      m_Path: <Gamepad>/buttonEast
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Submit
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 213af14c-eea0-41ff-8270-63335a39be14
-      m_Path: <DualShockGamepad>/buttonEast
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Submit
-      m_Flags: 0
-    m_Flags: 0
 --- !u!114 &1910227967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,9 +1241,33 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: df70fa95-8a34-4494-b137-73ab6b9c7d37
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1910227968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910227961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2e9200e483b934795c4df233f74da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Base
+  submitAction:
+    m_Name: Submit
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0acce7c1-99e2-4e34-b517-d7b7922854ae
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  startButton: {fileID: 834656014}
+  continueButton: {fileID: 120737811}
 --- !u!1 &1932750966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,7 +1280,6 @@ GameObject:
   - component: {fileID: 1932750968}
   - component: {fileID: 1932750967}
   - component: {fileID: 1932750970}
-  - component: {fileID: 1932750971}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1367,28 +1405,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &1932750971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932750966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db2e9200e483b934795c4df233f74da2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: 
-  submitAction:
-    m_Name: Submit
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: c45571bd-84bb-46ab-9535-454f1f1c8413
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
 --- !u!1 &2141753885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,3 +1487,4 @@ SceneRoots:
   - {fileID: 1932750969}
   - {fileID: 1910227965}
   - {fileID: 1637930561}
+  - {fileID: 1643892978}
